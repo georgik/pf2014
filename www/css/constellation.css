@@ -90,3 +90,15 @@ a:hover {
 	text-align: left;
 	padding: 10px;
 }
+
+#imageContainer {
+    position: relative;
+}
+
+#positionMarker {
+    position: absolute;
+}
+
+.line {
+    background-color: lightyellow;
+}
