@@ -1,5 +1,6 @@
 /*Stylesheet*/
 
+
 BODY, HTML {
 	margin: 			0;
 	padding: 			0;
@@ -16,7 +17,7 @@ BODY, HTML {
 BODY {
 }
 
-
+/*
 p {
 	margin:	10px 0;
 }
@@ -79,7 +80,9 @@ a:hover {
 	position: absolute;
 	text-align:center;
 	margin-top: 250px;
-	/*background: url('loader.gif') no-repeat;*/
+	*/
+/*background: url('loader.gif') no-repeat;*//*
+
 	background-position: 50% 50%;
 	display: block !important;
 }
@@ -90,6 +93,8 @@ a:hover {
 	text-align: left;
 	padding: 10px;
 }
+*/
+
 
 #imageContainer {
     position: relative;
@@ -101,4 +106,10 @@ a:hover {
 
 .line {
     background-color: lightyellow;
+}
+
+
+i {
+    font-size:2em;
+    padding: 10px;
 }

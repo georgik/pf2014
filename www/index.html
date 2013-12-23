@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
         <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
         <title>PF 2014</title>
         <link href="css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
@@ -12,7 +12,11 @@
 
     </head>
     <body>
+        <script src="js/jquery/1.9.0/jquery.min.js"></script>
+        <script src="js/jquery/1/jquery-ui.min.js"></script>
+        <!--<script src="js/jquery/1/jquery.ui.touch-punch.min.js"></script>-->
         <script src="js/angularjs/1.2.6/angular.min.js"></script>
+        <script src="js/angularjs/angular-dragdrop.min.js"></script>
         <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>-->
 
         <!--<script type="text/javascript" src="cordova.js"></script>-->
@@ -22,7 +26,11 @@
         <div ng-controller="ConstellationController" ng-init="init()">
             <div id="imageContainer">
                 <div class="line" ng-repeat="line in constellation.lines" ng-style="getLineStyle(line)"></div>
-                <i class="positionMarker fa fa-star" ng-repeat="item in constellation.stars" ng-style="getStarStyle(item)"></i>
+                <i data-drag="true" data-jqyoui-options="{revert: 'invalid'}"
+                   jqyoui-draggable="{animate:true}"
+                   class="positionMarker fa fa-star"
+                   ng-repeat="item in constellation.stars" ng-style="getStarStyle(item)"></i>
+
             </div>
         </div>
 
