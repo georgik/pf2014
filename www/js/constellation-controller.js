@@ -20,11 +20,12 @@ function touchHandler(event)
     event.preventDefault();
 }
 
-angular.module('app', ['ngDragDrop'])
+angular.module('app', ['ngTouch', 'ngDragDrop'])
     .controller('ConstellationController', function($scope, $timeout, $locale) {
 
         /** Indicate that game mode is running */
         $scope.isGameMode = false;
+        $scope.isLevelCompleteScreenVisible = false;
 
         $scope.constellations = startConstellations;
         $scope.constellation = {
@@ -33,15 +34,43 @@ angular.module('app', ['ngDragDrop'])
         };
         $scope.visibleLines = [];
         $scope.visibleStars = [];
+        $scope.levels = ['aries', 'cancer', 'taurus', 'libra', 'capricornus', 'gemini', 'virgo', 'aquarius',
+            'scorpius', 'leo', 'pisces', 'sagittarius'
+        ];
+        $scope.currentLevelIndex = 0;
+        $scope.isTouchPatched = false;
 
         $scope.init = function() {
+            $scope.startLevel(0);
+        };
+
+        $scope.addTouchListeners = function() {
+            if ($scope.isTouchPatched) {
+                return;
+            }
+            $scope.isTouchPatched = true;
             // Touch event fix
             document.addEventListener("touchstart", touchHandler, true);
             document.addEventListener("touchmove", touchHandler, true);
             document.addEventListener("touchend", touchHandler, true);
             document.addEventListener("touchcancel", touchHandler, true);
+        };
 
-            $scope.constellation = $scope.constellations['gemini'];
+        $scope.removeTouchListeners = function() {
+            if (!$scope.isTouchPatched) {
+                return;
+            }
+            $scope.isTouchPatched = false;
+            document.removeEventListener("touchstart", touchHandler, true);
+            document.removeEventListener("touchmove", touchHandler, true);
+            document.removeEventListener("touchend", touchHandler, true);
+            document.removeEventListener("touchcancel", touchHandler, true);
+        };
+
+        $scope.startLevel = function(levelIndex) {
+            var levelName = $scope.levels[levelIndex];
+            $scope.currentLevelIndex = levelIndex;
+            $scope.constellation = $scope.constellations[levelName];
             $scope.visibleLines = $scope.constellation.lines.slice();
             $scope.visibleStars = $scope.constellation.stars.slice();
 
@@ -85,6 +114,7 @@ angular.module('app', ['ngDragDrop'])
             $scope.visibleLines = $scope.constellation.lines.slice();
             $scope.hideLines();
             $scope.isGameMode = true;
+            $scope.addTouchListeners();
         };
 
         /** Display line from start to end point. Ignore if line already exists. */
@@ -100,15 +130,20 @@ angular.module('app', ['ngDragDrop'])
 
             // Display line
             $scope.visibleLines.push([startPoint, endPoint]);
-            $scope.visibleStars[startPoint].x = $scope.constellation.stars[startPoint].x;
-            $scope.visibleStars[startPoint].y = $scope.constellation.stars[startPoint].y;
+
+            if ($scope.visibleLines.length == $scope.constellation.lines.length) {
+                $scope.levelComplete();
+            }
         };
 
+        /** Process request for star drop. */
         $scope.starDrop = function(event, sourceObject) {
+            if (!$scope.isGameMode) {
+                return;
+            }
+
             var sourceIndex = parseInt(event.target.getAttribute('data-index'));
             var targetIndex = parseInt(event.toElement.getAttribute('data-index'));
-            var forwardVector = [sourceIndex, targetIndex];
-            var reverseVector = [targetIndex, sourceIndex];
 
             // Check whether drop is valid and display line
             for (var index = 0; index < $scope.constellation.lines.length; index++) {
@@ -123,6 +158,23 @@ angular.module('app', ['ngDragDrop'])
                     break;
                 }
             }
-        }
+        };
+
+        /** Level complete - display screen for next level */
+        $scope.levelComplete = function() {
+            $scope.isGameMode = false;
+            $scope.isLevelCompleteScreenVisible = true;
+            $scope.removeTouchListeners();
+        };
+
+        $scope.restartLevel = function() {
+            $scope.isLevelCompleteScreenVisible = false;
+            $scope.startLevel($scope.currentLevelIndex);
+        };
+
+        $scope.nextLevel = function() {
+            $scope.isLevelCompleteScreenVisible = false;
+            $scope.startLevel($scope.currentLevelIndex + 1);
+        };
     }
 );

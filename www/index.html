@@ -15,6 +15,7 @@
         <script src="js/jquery/1.9.0/jquery.min.js"></script>
         <script src="js/jquery/1/jquery-ui.min.js"></script>
         <script src="js/angularjs/1.2.6/angular.min.js"></script>
+        <script src="js/angularjs/1.2.6/angular-touch.min.js"></script>
         <script src="js/angularjs/angular-dragdrop.min.js"></script>
 
         <!--<script type="text/javascript" src="cordova.js"></script>-->
@@ -22,7 +23,7 @@
         <script type="text/javascript" src="js/constellation-controller.js"></script>
 
         <div ng-controller="ConstellationController" ng-init="init()">
-            <div id="imageContainer">
+            <div id="imageContainer" ng-hide="isLevelCompleteScreenVisible">
                 <i ng-repeat="item in visibleStars" ng-style="getStarStyle(item)" class="fa fa-star-o"></i>
                 <div class="line" ng-repeat="line in visibleLines" ng-style="getLineStyle(line)"></div>
                 <i data-drag="true"
@@ -34,6 +35,11 @@
                    data-index="{{$index}}"
                    ng-repeat="item in visibleStars" ng-style="getStarStyle(item)"></i>
 
+            </div>
+            <div id="levelComplete" ng-show="isLevelCompleteScreenVisible">
+                <h2>Congratulations!</h2>
+                <input type="button" value="Play again" ng-click="restartLevel()"/>
+                <input type="button" value="Next level" ng-click="nextLevel()" />
             </div>
         </div>
 
