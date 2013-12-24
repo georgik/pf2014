@@ -14,10 +14,8 @@
     <body>
         <script src="js/jquery/1.9.0/jquery.min.js"></script>
         <script src="js/jquery/1/jquery-ui.min.js"></script>
-        <!--<script src="js/jquery/1/jquery.ui.touch-punch.min.js"></script>-->
         <script src="js/angularjs/1.2.6/angular.min.js"></script>
         <script src="js/angularjs/angular-dragdrop.min.js"></script>
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular-resource.min.js"></script>-->
 
         <!--<script type="text/javascript" src="cordova.js"></script>-->
         <script type="text/javascript" src="js/constellation.js"></script>
@@ -25,11 +23,16 @@
 
         <div ng-controller="ConstellationController" ng-init="init()">
             <div id="imageContainer">
-                <div class="line" ng-repeat="line in constellation.lines" ng-style="getLineStyle(line)"></div>
-                <i data-drag="true" data-jqyoui-options="{revert: 'invalid'}"
-                   jqyoui-draggable="{animate:true}"
+                <i ng-repeat="item in visibleStars" ng-style="getStarStyle(item)" class="fa fa-star-o"></i>
+                <div class="line" ng-repeat="line in visibleLines" ng-style="getLineStyle(line)"></div>
+                <i data-drag="true"
+                   data-jqyoui-options="{revert: true}"
+                   jqyoui-draggable=""
+                   data-drop="true"
+                   jqyoui-droppable="{onDrop:'starDrop'}"
                    class="positionMarker fa fa-star"
-                   ng-repeat="item in constellation.stars" ng-style="getStarStyle(item)"></i>
+                   data-index="{{$index}}"
+                   ng-repeat="item in visibleStars" ng-style="getStarStyle(item)"></i>
 
             </div>
         </div>
