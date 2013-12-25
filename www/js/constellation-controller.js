@@ -240,7 +240,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
             }
 
             var sourceIndex = parseInt(event.target.getAttribute('data-index'));
-            var targetIndex = parseInt(event.toElement.getAttribute('data-index'));
+            var targetIndex = parseInt(sourceObject.draggable[0].getAttribute('data-index'));
 
             // Check whether drop is valid and display line
             for (var index = 0; index < $scope.constellation.lines.length; index++) {
