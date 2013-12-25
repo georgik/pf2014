@@ -1,3 +1,4 @@
+// Constellation coordinates created by: http://tracing-paper.sinusgear.com
 var startConstellations = {
     aries: {
         wiki: 'http://en.wikipedia.org/wiki/Aries_(constellation)',
@@ -264,6 +265,77 @@ var startConstellations = {
         lines: [
             [0,1], [1,2], [0,2], [2,3], [3,4], [4,5], [5,6], [6,7], [7,8], [8,9], [9,10], [10,11], [11,12], [12,13],
             [13,14], [10,14]
+        ]
+    },
+    outro: {
+        stars: [
+            { x: 19, y: 132 , magnitude: "2" },
+            { x: 19, y: 79 , magnitude: "2" },
+            { x: 43, y: 79 , magnitude: "2" },
+            { x: 51, y: 92 , magnitude: "2" },
+            { x: 42, y: 106 , magnitude: "2" },
+            { x: 18, y: 106 , magnitude: "2" },
+            { x: 68, y: 133 , magnitude: "2" },
+            { x: 68, y: 104 , magnitude: "2" },
+            { x: 92, y: 105 , magnitude: "2" },
+            { x: 68, y: 78 , magnitude: "2" },
+            { x: 97, y: 78 , magnitude: "2" },
+            { x: 159, y: 132 , magnitude: "2" },
+            { x: 124, y: 131 , magnitude: "2" },
+            { x: 157, y: 94 , magnitude: "2" },
+            { x: 145, y: 78 , magnitude: "2" },
+            { x: 128, y: 81 , magnitude: "2" },
+            { x: 188, y: 134 , magnitude: "2" },
+            { x: 203, y: 118 , magnitude: "2" },
+            { x: 201, y: 86 , magnitude: "2" },
+            { x: 186, y: 79 , magnitude: "2" },
+            { x: 175, y: 99 , magnitude: "2" },
+            { x: 173, y: 113 , magnitude: "2" },
+            { x: 236, y: 131 , magnitude: "2" },
+            { x: 236, y: 78 , magnitude: "2" },
+            { x: 232, y: 87 , magnitude: "2" },
+            { x: 291, y: 133 , magnitude: "2" },
+            { x: 288, y: 79 , magnitude: "2" },
+            { x: 262, y: 114 , magnitude: "2" },
+            { x: 301, y: 116 , magnitude: "2" },
+            { x: 163, y: 240 , magnitude: "2" },
+            { x: 185, y: 242 , magnitude: "2" },
+            { x: 186, y: 186 , magnitude: "2" },
+            { x: 205, y: 206 , magnitude: "2" },
+            { x: 204, y: 226 , magnitude: "2" },
+            { x: 220, y: 239 , magnitude: "2" },
+            { x: 234, y: 223 , magnitude: "2" },
+            { x: 235, y: 202 , magnitude: "2" },
+            { x: 235, y: 243 , magnitude: "2" },
+            { x: 272, y: 204 , magnitude: "2" },
+            { x: 255, y: 216 , magnitude: "2" },
+            { x: 256, y: 201 , magnitude: "2" },
+            { x: 255, y: 244 , magnitude: "2" },
+            { x: 309, y: 244 , magnitude: "2" },
+            { x: 307, y: 221 , magnitude: "2" },
+            { x: 304, y: 204 , magnitude: "2" },
+            { x: 289, y: 204 , magnitude: "2" },
+            { x: 285, y: 224 , magnitude: "2" },
+            { x: 281, y: 238 , magnitude: "2" },
+            { x: 294, y: 244 , magnitude: "2" },
+            { x: 317, y: 258 , magnitude: "2" },
+            { x: 330, y: 246 , magnitude: "2" },
+            { x: 330, y: 202 , magnitude: "2" },
+            { x: 331, y: 186 , magnitude: "2" },
+            { x: 158, y: 235 , magnitude: "2" }
+        ],
+        lines: [
+            [0,1], [1,2], [2,3], [3,4], [4,5], // P
+            [6,7], [7,8], [7,9], [9,10], // F
+            [11,12], [12,13], [13,14], [14,15], // 2
+            [16,17], [17,18], [18,19], [19,20], [20,21], [16,21], // 0
+            [22,23], [23,24], // 1
+            [25,26], [26,27], [27,28], // 4
+            [29,30], [30,31], // J
+            [32,33], [33,34], [34,35], [35,36], [35,37], // u
+            [38,39], [39,40], [39,41], // r
+            [42,43], [43,44], [44,45], [43,46], [46,47], [47,48], [42,48], // a
+            [49,50], [50,51] // j
         ]
     }
 };

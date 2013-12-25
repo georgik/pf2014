@@ -35,8 +35,9 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.visibleLines = [];
         $scope.visibleStars = [];
         $scope.levels = ['aries', 'cancer', 'taurus', 'libra', 'capricornus', 'gemini', 'virgo', 'aquarius',
-            'scorpius', 'leo', 'pisces', 'sagittarius'
+            'scorpius', 'leo', 'pisces', 'sagittarius', 'outro'
         ];
+        $scope.outroIndex = $scope.levels.length - 1;
         $scope.currentLevelIndex = 0;
         $scope.isTouchPatched = false;
 
@@ -147,16 +148,25 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
 
             $scope.adjustConstellation();
 
-            $timeout($scope.startGame, 1000);
+            if (levelIndex != $scope.outroIndex) {
+                $timeout($scope.startGame, 1000);
+            }
         };
 
         $scope.getStarStyle = function(item) {
-            return {
+            var style = {
                 position: "absolute",
                 left: (item.x - 18) + "px",
                 top: (item.y - 18) + "px",
                 color: "yellow"
             };
+
+            if ($scope.currentLevelIndex == $scope.outroIndex) {
+                style['font-size'] = '1em';
+                style['padding'] = '1em';
+            }
+
+            return style;
         };
 
         $scope.getLineStyle = function(lineItem) {
