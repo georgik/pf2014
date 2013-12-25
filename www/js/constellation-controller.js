@@ -67,12 +67,85 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
             document.removeEventListener("touchcancel", touchHandler, true);
         };
 
+        /** Recalculate constellation size to current display size. **/
+        $scope.adjustConstellation = function() {
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+
+            // Find max and min coordinates
+            var minX = 500;
+            var minY = 500;
+            var maxX = 0;
+            var maxY = 0;
+            var index;
+            var star;
+
+            for (index = 0; index < $scope.constellation.stars.length; index++) {
+                star = $scope.constellation.stars[index];
+                if (minX > star.x) {
+                    minX = star.x
+                }
+                if (minY > star.y) {
+                    minY = star.y;
+                }
+                if (maxX < star.x) {
+                    maxX = star.x;
+                }
+                if (maxY < star.y) {
+                    maxY = star.y;
+                }
+            }
+
+            var starWidth = maxX - minX + 30;
+            var starHeight = maxY - minY + 30;
+
+            // Rotate constellation if it goes out of screen
+            if ((starWidth > screenWidth) || (starHeight > screenHeight)) {
+                for (index = 0; index < $scope.constellation.stars.length; index++) {
+                    star = $scope.constellation.stars[index];
+                    var oldX = star.x;
+                    star.x = star.y;
+                    star.y = -oldX + starWidth;
+                }
+
+                var tmp = starHeight;
+                starHeight = starWidth;
+                starWidth = tmp;
+
+                tmp = minX;
+                minX = minY;
+                minY = tmp;
+            }
+
+            // Stretch constellation
+            var ratioX = (screenWidth - 16) / starWidth;
+            var ratioY = (screenHeight - 16) / starHeight;
+
+            var ratio = Math.min(ratioX, ratioY);
+            if (ratio < 1.2) {
+                ratio = 1;
+            }
+
+            var driftX = minX - 10;
+            if (driftX < 0) {
+                driftX = -10 - minX;
+            }
+
+            for (index = 0; index < $scope.constellation.stars.length; index++) {
+                star = $scope.constellation.stars[index];
+                star.x = star.x * ratio - driftX;
+                star.y = star.y * ratio;
+            }
+        };
+
         $scope.startLevel = function(levelIndex) {
             var levelName = $scope.levels[levelIndex];
             $scope.currentLevelIndex = levelIndex;
             $scope.constellation = $scope.constellations[levelName];
             $scope.visibleLines = $scope.constellation.lines.slice();
             $scope.visibleStars = $scope.constellation.stars.slice();
+
+            $scope.adjustConstellation();
 
             $timeout($scope.startGame, 1000);
         };
