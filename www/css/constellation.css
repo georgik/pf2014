@@ -70,6 +70,7 @@ i {
     padding-bottom: 0.2em;
     padding-right: 0.5em;
     margin: 1em;
+    cursor: pointer;
 }
 
 #replayButton {
