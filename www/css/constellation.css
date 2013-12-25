@@ -127,3 +127,14 @@ i {
 /*.pisces {
     background: url(../img/svg/pisces.svg) no-repeat center center;
 }*/
+
+#startLevel {
+    font-size: 1.4em;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    color: lightgreen;
+    margin-top: 7em;
+    padding-bottom: 1em;
+    background:rgba(0,0,0,0.5);
+}

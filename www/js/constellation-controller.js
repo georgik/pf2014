@@ -41,6 +41,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.outroIndex = $scope.levels.length - 1;
         $scope.currentLevelIndex = 0;
         $scope.isTouchPatched = false;
+        $scope.isStartConfirmation = false;
 
         $scope.init = function() {
             $scope.startLevel(0);
@@ -150,7 +151,8 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
             $scope.adjustConstellation();
 
             if (levelIndex != $scope.outroIndex) {
-                $timeout($scope.startGame, 1000);
+                $scope.isStartConfirmation = true;
+//                $timeout($scope.startGame, 1000);
             }
         };
 
@@ -195,6 +197,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         };
 
         $scope.startGame = function() {
+            $scope.isStartConfirmation = false;
             $scope.visibleLines = $scope.constellation.lines.slice();
             $scope.hideLines();
             $scope.isGameMode = true;

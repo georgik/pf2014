@@ -35,8 +35,9 @@
                    class="positionMarker fa fa-star"
                    data-index="{{$index}}"
                    ng-repeat="item in visibleStars" ng-style="getStarStyle(item)"></i>
-
             </div>
+            <div id="startLevel" class="levelButton" ng-show="isStartConfirmation" ng-click="startGame()">
+                <i class="fa fa-flag-checkered"></i>Start</div>
             <div id="levelComplete" ng-show="isLevelCompleteScreenVisible">
                 <div id="congratulation">Congratulations!</div>
                 <div>
