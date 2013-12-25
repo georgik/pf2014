@@ -37,6 +37,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.levels = ['aries', 'cancer', 'taurus', 'libra', 'capricornus', 'gemini', 'virgo', 'aquarius',
             'scorpius', 'leo', 'pisces', 'sagittarius', 'outro'
         ];
+        $scope.levelName = "";
         $scope.outroIndex = $scope.levels.length - 1;
         $scope.currentLevelIndex = 0;
         $scope.isTouchPatched = false;
@@ -140,9 +141,9 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         };
 
         $scope.startLevel = function(levelIndex) {
-            var levelName = $scope.levels[levelIndex];
+            $scope.levelName = $scope.levels[levelIndex];
             $scope.currentLevelIndex = levelIndex;
-            $scope.constellation = $scope.constellations[levelName];
+            $scope.constellation = $scope.constellations[$scope.levelName];
             $scope.visibleLines = $scope.constellation.lines.slice();
             $scope.visibleStars = $scope.constellation.stars.slice();
 

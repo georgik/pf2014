@@ -39,3 +39,10 @@ i {
 #levelComplete {
     background: black;
 }
+
+#constellationInfo {
+    font-size: 5em;
+    color: gray;
+    bottom: 0;
+    text-align: center;
+}

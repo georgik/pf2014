@@ -3,6 +3,7 @@ var startConstellations = {
     aries: {
         wiki: 'http://en.wikipedia.org/wiki/Aries_(constellation)',
         unicode: '♈',
+        title: 'Aries',
         stars: [
             { x: 16, y: 28 , magnitude: "3" },
             { x: 132, y: 71 , magnitude: "2" },
@@ -17,6 +18,7 @@ var startConstellations = {
     taurus: {
         wiki: 'http://en.wikipedia.org/wiki/Taurus_constellation',
         unicode: '♉',
+        title: 'Taurus',
         stars: [
             { x: 42, y: 28 , magnitude: "2" },
             { x: 195, y: 139 , magnitude: "3" },
@@ -34,6 +36,7 @@ var startConstellations = {
     gemini: {
         wiki: 'http://en.wikipedia.org/wiki/Gemini_constellation',
         unicode: '♊',
+        title: 'Gemini',
         stars: [
             { x: 24, y: 75 , magnitude: "1" },
             { x: 46, y: 93 , magnitude: "4" },
@@ -59,6 +62,7 @@ var startConstellations = {
     cancer: {
         wiki: 'http://en.wikipedia.org/wiki/Cancer_constellation',
         unicode: '♋',
+        title: 'Cancer',
         stars: [
             { x: 61, y: 11 , magnitude: "3" },
             { x: 70, y: 95 , magnitude: "4" },
@@ -75,6 +79,7 @@ var startConstellations = {
     leo: {
         wiki: 'http://en.wikipedia.org/wiki/Leo_constellation',
         unicode: '♌',
+        title: 'Leo',
         stars: [
             { x: 98, y: 236 , magnitude: "4" },
             { x: 92, y: 183 , magnitude: "4" },
@@ -99,6 +104,7 @@ var startConstellations = {
     virgo: {
         wiki: 'http://en.wikipedia.org/wiki/Virgo_constellation',
         unicode: '♍',
+        title: 'Virgo',
         stars: [
             { x: 20, y: 166 , magnitude: "4" },
             { x: 83, y: 171 , magnitude: "4" },
@@ -123,6 +129,7 @@ var startConstellations = {
     libra: {
         wiki: 'http://en.wikipedia.org/wiki/Libra_constellation',
         unicode: '♎',
+        title: 'Libra',
         stars: [
             { x: 21, y: 248 , magnitude: "4" },
             { x: 26, y: 228 , magnitude: "4" },
@@ -139,6 +146,7 @@ var startConstellations = {
     scorpius: {
         wiki: 'http://en.wikipedia.org/wiki/Scorpio_(constellation)',
         unicode: '♏',
+        title: 'Scorpius',
         stars: [
             { x: 24, y: 218 , magnitude: "4" },
             { x: 65, y: 210 , magnitude: "2" },
@@ -166,6 +174,7 @@ var startConstellations = {
     sagittarius: {
         wiki: 'http://en.wikipedia.org/wiki/Sagittarius_(constellation)',
         unicode: '♐',
+        title: 'Sagittarius',
         stars: [
             { x: 143, y: 352 , magnitude: "4" },
             { x: 140, y: 314 , magnitude: "4" },
@@ -196,6 +205,7 @@ var startConstellations = {
     capricornus: {
         wiki: 'http://en.wikipedia.org/wiki/Capricorn_(constellation)',
         unicode: '♑',
+        title: 'Capricornus',
         stars: [
             { x: 15, y: 59 , magnitude: "3" },
             { x: 44, y: 95 , magnitude: "4" },
@@ -218,6 +228,7 @@ var startConstellations = {
     aquarius: {
         wiki: 'http://en.wikipedia.org/wiki/Aquarius_(constellation)',
         unicode: '♒',
+        title: 'Aquarius',
         stars: [
             { x: 20, y: 144 , magnitude: "4" },
             { x: 78, y: 186 , magnitude: "4" },
@@ -245,6 +256,7 @@ var startConstellations = {
     pisces: {
         wiki: 'http://en.wikipedia.org/wiki/Pisces_(constellation)',
         unicode: '♓',
+        title: 'Pisces',
         stars: [
             { x: 124, y: 24 , magnitude: "4" },
             { x: 106, y: 47 , magnitude: "4" },
@@ -268,6 +280,9 @@ var startConstellations = {
         ]
     },
     outro: {
+        unicode: '☺',
+        title: '',
+        wiki: 'http://pf2014.sinusgear.com',
         stars: [
             { x: 19, y: 132 , magnitude: "2" },
             { x: 19, y: 79 , magnitude: "2" },

@@ -24,6 +24,7 @@
 
         <div ng-controller="ConstellationController" ng-init="init()">
             <div id="imageContainer" ng-hide="isLevelCompleteScreenVisible">
+                <div id="constellationInfo">{{constellation.unicode}} {{constellation.title}}</div>
                 <i ng-repeat="item in visibleStars" ng-style="getStarStyle(item)" class="fa fa-star-o"></i>
                 <div class="line" ng-repeat="line in visibleLines" ng-style="getLineStyle(line)"></div>
                 <i data-drag="true"
