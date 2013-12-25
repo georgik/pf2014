@@ -23,7 +23,7 @@
         <script type="text/javascript" src="js/constellation-controller.js"></script>
 
         <div ng-controller="ConstellationController" ng-init="init()">
-            <div id="imageContainer" ng-hide="isLevelCompleteScreenVisible">
+            <div id="imageContainer" >
                 <div id="constellationInfo">{{constellation.unicode}} {{constellation.title}}</div>
                 <i ng-repeat="item in visibleStars" ng-style="getStarStyle(item)" class="fa fa-star-o"></i>
                 <div class="line" ng-repeat="line in visibleLines" ng-style="getLineStyle(line)"></div>
@@ -38,9 +38,11 @@
 
             </div>
             <div id="levelComplete" ng-show="isLevelCompleteScreenVisible">
-                <h2>Congratulations!</h2>
-                <input type="button" value="Play again" ng-click="restartLevel()"/>
-                <input type="button" value="Next level" ng-click="nextLevel()" />
+                <div id="congratulation">Congratulations!</div>
+                <div>
+                    <a class="levelButton" id="replayButton" ng-click="restartLevel()"><i class="fa fa-repeat"></i>Play again</a>
+                    <a class="levelButton" id="nextButton" ng-click="nextLevel()"><i class="fa fa-arrow-right" ></i>Next level</a>
+                </div>
             </div>
         </div>
 

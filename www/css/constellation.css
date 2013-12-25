@@ -38,11 +38,40 @@ i {
 
 #levelComplete {
     background: black;
+    position: relative;
+    z-index: 200;
+    background:rgba(0,0,0,0.7);
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#congratulation {
+    font-size: 3em;
+    padding-bottom: 1em;
 }
 
 #constellationInfo {
     font-size: 5em;
-    color: gray;
+    color: lightgray;
     bottom: 0;
     text-align: center;
+}
+
+.levelButton {
+    font-size: 1.2em;
+    background: #111;
+    border: 1px solid lightgray;
+    padding-top: 1em;
+    padding-bottom: 0.2em;
+    padding-right: 0.5em;
+    margin: 1em;
+}
+
+#replayButton {
+    color: orange;
+}
+
+#nextButton {
+    color: lightgreen;
 }
