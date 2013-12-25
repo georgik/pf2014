@@ -32,7 +32,7 @@
                    jqyoui-draggable=""
                    data-drop="true"
                    jqyoui-droppable="{onDrop:'starDrop'}"
-                   class="positionMarker fa fa-star"
+                   class="positionMarker fa fa-star {{visibleStarClass}}"
                    data-index="{{$index}}"
                    ng-repeat="item in visibleStars" ng-style="getStarStyle(item)"></i>
             </div>
@@ -42,11 +42,14 @@
                 <div id="congratulation">Congratulations!</div>
                 <div>
                     <a class="levelButton" id="replayButton" ng-click="restartLevel()"><i class="fa fa-repeat"></i>Play again</a>
-                    <a class="levelButton" id="nextButton" ng-click="nextLevel()"><i class="fa fa-arrow-right" ></i>Next level</a>
+                    <a class="levelButton" id="nextButton" ng-click="nextLevel()" ng-hide="isFinalScreenVisible"><i class="fa fa-arrow-right" ></i>Next level</a>
                 </div>
                 <div>
-                    <a class="levelButton" id="wikiButton" ng-click="openUrl(constellation.wiki)">
+                    <a class="levelButton" id="wikiButton" ng-click="openUrl(constellation.wiki)" ng-hide="isFinalScreenVisible">
                         <i class="fa fa-book" ></i>Read more at Wikipedia.org</a>
+                    <a class="levelButton" id="webButton" ng-click="openUrl(constellation.wiki)" ng-show="isFinalScreenVisible">
+                        <i class="fa fa-thumbs-up" ></i>Visit PF 2014 website</a>
+
                 </div>
             </div>
         </div>

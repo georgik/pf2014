@@ -52,7 +52,7 @@ var startConstellations = {
             { x: 261, y: 148 , magnitude: "5" },
             { x: 290, y: 133 , magnitude: "4" },
             { x: 55, y: 31 , magnitude: "1" },
-            { x: 158, y: 11 , magnitude: "3" }
+            { x: 158, y: 20 , magnitude: "3" }
         ],
         lines: [
             [0,1], [1,2], [1,3], [3,5], [5,6], [3,4], [1,7], [7,13], [7,14], [7,8], [8,9], [9,10], [10,11], [11,12]
@@ -64,7 +64,7 @@ var startConstellations = {
         unicode: '♋',
         title: 'Cancer',
         stars: [
-            { x: 61, y: 11 , magnitude: "3" },
+            { x: 61, y: 20 , magnitude: "3" },
             { x: 70, y: 95 , magnitude: "4" },
             { x: 66, y: 134 , magnitude: "3" },
             { x: 24, y: 207 , magnitude: "3" },
@@ -88,8 +88,8 @@ var startConstellations = {
             { x: 306, y: 166 , magnitude: "2" },
             { x: 366, y: 27 , magnitude: "3" },
             { x: 404, y: 34 , magnitude: "4" },
-            { x: 422, y: 0 , magnitude: "4" },
-            { x: 347, y: 0 , magnitude: "3" },
+            { x: 422, y: 8 , magnitude: "4" },
+            { x: 347, y: 8 , magnitude: "3" },
             { x: 281, y: 34 , magnitude: "3" },
             { x: 274, y: 72 , magnitude: "2" },
             { x: 123, y: 68 , magnitude: "3" },
@@ -136,7 +136,7 @@ var startConstellations = {
             { x: 27, y: 74 , magnitude: "4" },
             { x: 153, y: 88 , magnitude: "3" },
             { x: 112, y: 197 , magnitude: "4" },
-            { x: 80, y: 12 , magnitude: "3" }
+            { x: 80, y: 20 , magnitude: "3" }
         ],
         lines: [
             [0,1], [1,2], [2,3], [3,4], [3,5], [2,5]
@@ -241,7 +241,7 @@ var startConstellations = {
             { x: 189, y: 35 , magnitude: "3" },
             { x: 176, y: 25 , magnitude: "4" },
             { x: 162, y: 26 , magnitude: "4" },
-            { x: 188, y: 8 , magnitude: "4" },
+            { x: 188, y: 18 , magnitude: "4" },
             { x: 224, y: 28 , magnitude: "4" },
             { x: 290, y: 69 , magnitude: "4" },
             { x: 325, y: 119 , magnitude: "4" },

@@ -26,6 +26,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         /** Indicate that game mode is running */
         $scope.isGameMode = false;
         $scope.isLevelCompleteScreenVisible = false;
+        $scope.isFinalScreenVisible = false;
 
         $scope.constellations = startConstellations;
         $scope.constellation = {
@@ -34,6 +35,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         };
         $scope.visibleLines = [];
         $scope.visibleStars = [];
+        $scope.visibleStarClass = "";
         $scope.levels = ['aries', 'cancer', 'taurus', 'libra', 'capricornus', 'gemini', 'virgo', 'aquarius',
             'scorpius', 'leo', 'pisces', 'sagittarius', 'outro'
         ];
@@ -125,19 +127,24 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
             var ratioY = (screenHeight - 16) / starHeight;
 
             var ratio = Math.min(ratioX, ratioY);
-            if (ratio < 1.2) {
+            if ((ratio < 1.2) || ($scope.currentLevelIndex == $scope.outroIndex)) {
                 ratio = 1;
             }
 
-            var driftX = minX - 10;
+            var driftX = (screenWidth - 16 - starWidth * ratio) / 2;
             if (driftX < 0) {
-                driftX = -10 - minX;
+                driftX = 0;
+            }
+
+            var driftY = (screenHeight - 16 - starHeight * ratio) / 2;
+            if (driftY < 0) {
+                driftY = 0;
             }
 
             for (index = 0; index < $scope.constellation.stars.length; index++) {
                 star = $scope.constellation.stars[index];
-                star.x = star.x * ratio - driftX;
-                star.y = star.y * ratio;
+                star.x = star.x * ratio + driftX;
+                star.y = star.y * ratio + driftY;
             }
         };
 
@@ -152,7 +159,10 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
 
             if (levelIndex != $scope.outroIndex) {
                 $scope.isStartConfirmation = true;
-//                $timeout($scope.startGame, 1000);
+                $scope.visibleStarClass = "";
+            } else {
+                $scope.visibleStarClass = "fa-spin";
+                $timeout($scope.levelComplete, 1000);
             }
         };
 
@@ -251,11 +261,18 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.levelComplete = function() {
             $scope.isGameMode = false;
             $scope.isLevelCompleteScreenVisible = true;
+            if ($scope.outroIndex == $scope.currentLevelIndex) {
+                $scope.isFinalScreenVisible = true;
+            }
             $scope.removeTouchListeners();
         };
 
         $scope.restartLevel = function() {
+            if ($scope.outroIndex == $scope.currentLevelIndex) {
+                $scope.currentLevelIndex = 0;
+            }
             $scope.isLevelCompleteScreenVisible = false;
+            $scope.isFinalScreenVisible = false;
             $scope.startLevel($scope.currentLevelIndex);
         };
 
