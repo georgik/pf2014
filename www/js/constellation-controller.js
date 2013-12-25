@@ -21,7 +21,7 @@ function touchHandler(event)
 }
 
 angular.module('app', ['ngTouch', 'ngDragDrop'])
-    .controller('ConstellationController', function($scope, $timeout, $locale) {
+    .controller('ConstellationController', function($scope, $timeout, $window, $locale) {
 
         /** Indicate that game mode is running */
         $scope.isGameMode = false;
@@ -259,6 +259,10 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.nextLevel = function() {
             $scope.isLevelCompleteScreenVisible = false;
             $scope.startLevel($scope.currentLevelIndex + 1);
+        };
+
+        $scope.openUrl = function(url) {
+            $window.open(url);
         };
     }
 );
