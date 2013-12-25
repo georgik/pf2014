@@ -22,8 +22,8 @@ BODY {
     position: relative;
 }
 
-#positionMarker {
-    position: absolute;
+.positionMarker {
+    cursor: pointer;
 }
 
 .line {
