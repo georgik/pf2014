@@ -36,6 +36,10 @@ i {
     padding: 10px;
 }
 
+#constellationController {
+    height: 100%;
+}
+
 #levelComplete {
     background: black;
     position: relative;
@@ -75,3 +79,51 @@ i {
 #nextButton {
     color: lightgreen;
 }
+
+.aries {
+    background: url(../img/svg/aries.svg) no-repeat center center;
+}
+
+.cancer {
+    background: url(../img/svg/cancer.svg) no-repeat center center;
+}
+
+.taurus {
+    background: url(../img/svg/taurus.svg) no-repeat center center;
+}
+
+.gemini {
+    background: url(../img/svg/gemini.svg) no-repeat center center;
+}
+
+.leo {
+    background: url(../img/svg/leo.svg) no-repeat center center;
+}
+
+/*.virgo {
+    background: url(../img/svg/virgo.svg) no-repeat center center;
+}*/
+
+.libra {
+    background: url(../img/svg/libra.svg) no-repeat center center;
+}
+
+.scorpius {
+    background: url(../img/svg/scorpius.svg) no-repeat center center;
+}
+
+.sagittarius {
+    background: url(../img/svg/sagittarius.svg) no-repeat center center;
+}
+
+/*.capricornus {
+    background: url(../img/svg/capricornus.svg) no-repeat center center;
+}*/
+
+.aquarius {
+    background: url(../img/svg/aquarius.svg) no-repeat center center;
+}
+
+/*.pisces {
+    background: url(../img/svg/pisces.svg) no-repeat center center;
+}*/
