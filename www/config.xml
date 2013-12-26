@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sinusgear.pf" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>PF2014</name>
+<widget id="com.sinusgear.pf" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Touch Stars - PF2014</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Connect stars to create constellations. Game contains 12 levels.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="juraj.michalek@gmail.com" href="http://georgik.sinusgear.com">
+        Juraj Michalek
     </author>
     <content src="index.html" />
     <access origin="*" />
