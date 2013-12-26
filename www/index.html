@@ -24,8 +24,17 @@
         <div id="constellationController" class="{{levelName}}" ng-controller="ConstellationController" ng-init="init()">
             <div id="imageContainer" ng-hide="isLevelSelectorVisible">
                 <div id="constellationInfo">{{constellation.title}}</div>
+
+                <div class="leaveLevelButton" ng-style="getLevelLeaveStyle()">
+                    <i  class="fa fa-star-half-o"
+                        data-drop="true"
+                        jqyoui-droppable="{onDrop:'showLevelList'}"></i>Select other level
+                </div>
+
                 <i ng-repeat="item in visibleStars" ng-style="getStarStyle(item)" class="fa fa-star-o"></i>
+
                 <div class="line" ng-repeat="line in visibleLines" ng-style="getLineStyle(line)"></div>
+
                 <i data-drag="true"
                    data-jqyoui-options="{revert: true}"
                    jqyoui-draggable=""
@@ -34,6 +43,10 @@
                    class="positionMarker fa fa-star {{visibleStarClass}}"
                    data-index="{{$index}}"
                    ng-repeat="item in visibleStars" ng-style="getStarStyle(item)"></i>
+
+                <div ng-style="getLevelInfoStyle()" ng-show="currentLevelIndex < outroIndex">
+                    Level: {{currentLevelIndex+1}}/12
+                </div>
             </div>
             <div id="startLevel" class="levelButton" ng-show="isStartConfirmation" ng-click="startGame()">
                 <i class="fa fa-flag-checkered"></i>Start</div>
@@ -48,10 +61,6 @@
                         <i class="fa fa-book" ></i>Read more at Wikipedia.org</a>
                     <a class="levelButton" id="webButton" ng-click="openUrl(constellation.wiki)" ng-show="isFinalScreenVisible">
                         <i class="fa fa-thumbs-up" ></i>Visit PF 2014 website</a>
-                </div>
-                <div>
-                    <a class="levelButton" ng-click="showLevelList()" >
-                        <i class="fa fa-star-half-o"></i>Select different level</a>
                 </div>
             </div>
 

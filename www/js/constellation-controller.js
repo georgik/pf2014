@@ -208,6 +208,25 @@ angular.module('app', ['ngTouch', 'ngDragDrop', 'LocalStorageModule'])
             }
         };
 
+        $scope.getLevelLeaveStyle = function() {
+            return {
+                position: "absolute",
+                left: "2px",
+                top: ( window.innerHeight - 36) + "px",
+                color: "gray"
+            };
+        };
+
+        $scope.getLevelInfoStyle = function() {
+            return {
+                position: "absolute",
+                right: "2px",
+                top: ( window.innerHeight - 20) + "px",
+                color: "gray"
+            };
+        };
+
+
         $scope.getStarStyle = function(item) {
             var style = {
                 position: "absolute",
@@ -327,6 +346,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop', 'LocalStorageModule'])
         };
 
         $scope.showLevelList = function() {
+            $scope.removeTouchListeners();
             $scope.isLevelCompleteScreenVisible = false;
             $scope.isLevelSelectorVisible = true;
         };
