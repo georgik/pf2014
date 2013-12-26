@@ -145,6 +145,14 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
                 star = $scope.constellation.stars[index];
                 star.x = star.x * ratio + driftX;
                 star.y = star.y * ratio + driftY;
+
+                // Check screen boundary
+                if (star.x > screenWidth) {
+                    star.x = screenWidth - 16;
+                }
+                if (star.y > screenHeight) {
+                    star.y = screenHeight - 16;
+                }
             }
         };
 
