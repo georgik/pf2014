@@ -20,8 +20,8 @@ function touchHandler(event)
     event.preventDefault();
 }
 
-angular.module('app', ['ngTouch', 'ngDragDrop'])
-    .controller('ConstellationController', function($scope, $timeout, $window, $locale) {
+angular.module('app', ['ngTouch', 'ngDragDrop', 'LocalStorageModule'])
+    .controller('ConstellationController', function($scope, $timeout, $window, $locale, localStorageService) {
 
         /** Indicate that game mode is running */
         $scope.isGameMode = false;
@@ -62,7 +62,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         ];
 
         $scope.init = function() {
-            //$scope.startLevel(0);
+            $scope.loadConfiguration();
         };
 
         $scope.addTouchListeners = function() {
@@ -307,6 +307,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
                 $scope.isFinalScreenVisible = true;
             } else {
                 $scope.levelLock[$scope.currentLevelIndex + 1].state = 'unlocked';
+                $scope.storeConfiguration();
             }
             $scope.removeTouchListeners();
         };
@@ -333,5 +334,28 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.openUrl = function(url) {
             $window.open(url);
         };
+
+        $scope.storeConfiguration = function() {
+            if (!localStorageService.isSupported) {
+                return;
+            }
+
+            localStorageService.add('levelLock',$scope.levelLock);
+        };
+
+        $scope.loadConfiguration = function() {
+            if (!localStorageService.isSupported) {
+                return;
+            }
+
+            var value = localStorageService.get('levelLock');
+
+            // store defaults
+            if (!value) {
+                $scope.storeConfiguration();
+            } else {
+                $scope.levelLock = value;
+            }
+        }
     }
 );
