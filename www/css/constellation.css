@@ -155,7 +155,7 @@ i {
     font-weight: bold;
     color: white;
     margin-left: 0.5em;
-    margin-top: 1em;
+    margin-bottom: 0.4em;
     float: left;
     padding-top: 1em;
     cursor: pointer;
@@ -171,3 +171,7 @@ i {
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";}
 .clearfix:after{clear:both;}
 
+#infoGraphics {
+    width: 100%;
+    text-align: center;
+}
