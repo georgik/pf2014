@@ -170,7 +170,7 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
                 $scope.visibleStarClass = "";
             } else {
                 $scope.visibleStarClass = "fa-spin";
-                $timeout($scope.levelComplete, 10000);
+                $timeout($scope.levelComplete, 5000);
             }
         };
 
