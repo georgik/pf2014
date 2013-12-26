@@ -159,7 +159,24 @@ angular.module('app', ['ngTouch', 'ngDragDrop'])
         $scope.startLevel = function(levelIndex) {
             $scope.levelName = $scope.levels[levelIndex];
             $scope.currentLevelIndex = levelIndex;
-            $scope.constellation = $scope.constellations[$scope.levelName];
+
+            // Clone star constellation
+            var item = $scope.constellations[$scope.levelName];
+            $scope.constellation = {
+                stars:  [],
+                lines: item.lines.slice(),
+                title: item.title,
+                unicode: item.unicode,
+                wiki: item.wiki
+            };
+
+            // Clone star constellation coordinates
+            for (var index = 0; index < item.stars.length; index++) {
+                var copy = { x:item.stars[index].x, y:item.stars[index].y };
+                $scope.constellation.stars.push(copy);
+            }
+
+              //  $scope.constellations[$scope.levelName];
             $scope.visibleLines = $scope.constellation.lines.slice();
             $scope.visibleStars = $scope.constellation.stars.slice();
 
