@@ -9,7 +9,7 @@
         <link href="css/constellation.css" rel="stylesheet" type="text/css" />
 
     </head>
-    <body>
+    <body ng-controller="ConstellationController" ng-init="init()">
         <script src="js/jquery/1.9.0/jquery.min.js"></script>
         <script src="js/jquery/1/jquery-ui.min.js"></script>
         <script src="js/angularjs/1.2.6/angular.min.js"></script>
@@ -21,7 +21,7 @@
         <script type="text/javascript" src="js/constellation.js"></script>
         <script type="text/javascript" src="js/constellation-controller.js"></script>
 
-        <div id="constellationController" class="{{levelName}}" ng-controller="ConstellationController" ng-init="init()">
+        <div id="constellationController" class="{{levelName}}" >
             <div id="imageContainer" ng-hide="isLevelSelectorVisible">
                 <div id="constellationInfo">{{constellation.title}}</div>
 
@@ -79,6 +79,19 @@
                 <div class="clearfix"></div>
             </div>
         </div>
+        <div id="badges" ng-show="isLevelSelectorVisible">
+            <div id="infoText">Some useful links</div>
+            <a class="link" href="https://play.google.com/store/apps/details?id=com.sinusgear.pf">
+                <img alt="Get it on Google Play"
+                     src="img/en_generic_rgb_wo_45.png" /></a>
 
+            <a class="link" href="http://github.com/georgik/pf2014">
+                <img alt="Get souce code from GitHub"
+                     src="img/GitHub-Mark-64px.png" /></a>
+
+            <a class="link" href="http://georgik.sinusgear.com">
+                <img alt="Read more at Georgik's blog"
+                     src="img/georgik-icon.png" /></a>
+        </div>
     </body>
 </html>

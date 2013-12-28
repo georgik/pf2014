@@ -175,3 +175,14 @@ i {
     width: 100%;
     text-align: center;
 }
+
+
+#badges {
+    text-align: center;
+    vertical-align: top;
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
