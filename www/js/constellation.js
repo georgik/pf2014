@@ -1,4 +1,4 @@
-// Constellation coordinates created by: http://tracing-paper.sinusgear.com
+// Constellation coordinates created by: http://georgik.rocks
 var startConstellations = {
     aries: {
         wiki: 'http://en.wikipedia.org/wiki/Aries_(constellation)',
@@ -282,7 +282,7 @@ var startConstellations = {
     outro: {
         unicode: '☺',
         title: '',
-        wiki: 'http://pf2014.sinusgear.com',
+        wiki: 'http://georgik.rocks/tag/games/',
         stars: [
             { x: 19, y: 132 },
             { x: 19, y: 79 },
